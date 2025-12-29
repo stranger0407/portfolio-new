@@ -5,10 +5,14 @@ import AboutSection from '@/components/AboutSection';
 import SkillsSection from '@/components/SkillsSection';
 import ExperienceSection from '@/components/ExperienceSection';
 import ProjectsSection from '@/components/ProjectsSection';
+import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import usePageAnalytics from '@/hooks/usePageAnalytics';
 
 const Index = () => {
+  usePageAnalytics();
+
   return (
     <>
       <Helmet>
@@ -37,6 +41,7 @@ const Index = () => {
           <SkillsSection />
           <ExperienceSection />
           <ProjectsSection />
+          <BlogSection />
           <ContactSection />
         </main>
         <Footer />

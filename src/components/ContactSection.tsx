@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Linkedin, Github, ExternalLink, MessageCircle } from 'lucide-react';
+import ContactForm from './ContactForm';
 
 const socialLinks = [
   {
@@ -31,7 +32,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-24 relative">
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="section-title">
@@ -40,16 +41,20 @@ const ContactSection = () => {
             <p className="section-subtitle">Get in touch with me</p>
           </div>
 
-          <div className="glass rounded-3xl p-8 md:p-12 gradient-border">
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Contact Info */}
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-2xl font-semibold mb-6">Reach Out</h3>
-                  <p className="text-muted-foreground mb-8">
-                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-                  </p>
-                </div>
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">Send Me a Message</h3>
+              <ContactForm />
+            </div>
+
+            {/* Contact Info & Social */}
+            <div className="space-y-8">
+              <div className="glass rounded-2xl p-8">
+                <h3 className="text-2xl font-semibold mb-6">Contact Info</h3>
+                <p className="text-muted-foreground mb-8">
+                  I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                </p>
 
                 <div className="space-y-4">
                   <a
@@ -91,14 +96,8 @@ const ContactSection = () => {
               </div>
 
               {/* Social Links */}
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-2xl font-semibold mb-6">Follow Me</h3>
-                  <p className="text-muted-foreground mb-8">
-                    Connect with me on social platforms to stay updated with my latest work and projects.
-                  </p>
-                </div>
-
+              <div className="glass rounded-2xl p-8">
+                <h3 className="text-2xl font-semibold mb-6">Follow Me</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {socialLinks.map((link) => (
                     <a
@@ -106,7 +105,7 @@ const ContactSection = () => {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex items-center gap-3 p-4 rounded-xl glass glass-hover text-muted-foreground ${link.color} transition-all`}
+                      className={`flex items-center gap-3 p-4 rounded-xl bg-muted/50 hover:bg-muted text-muted-foreground ${link.color} transition-all`}
                     >
                       <link.icon size={24} />
                       <span className="font-medium">{link.name}</span>
@@ -119,7 +118,7 @@ const ContactSection = () => {
                   href="https://raja-jha-portfolio.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-primary text-primary-foreground font-semibold hover:scale-[1.02] glow transition-all"
+                  className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-primary text-primary-foreground font-semibold hover:scale-[1.02] glow transition-all mt-6"
                 >
                   Visit Portfolio
                   <ExternalLink size={18} />
