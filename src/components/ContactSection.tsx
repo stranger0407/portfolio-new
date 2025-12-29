@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Github, ExternalLink, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, ExternalLink, MessageCircle, Wifi } from 'lucide-react';
 import ContactForm from './ContactForm';
 
 const socialLinks = [
@@ -6,25 +6,25 @@ const socialLinks = [
     name: 'LinkedIn',
     icon: Linkedin,
     url: 'https://linkedin.com/in/raja',
-    color: 'hover:text-blue-400',
+    code: 'LI',
   },
   {
     name: 'GitHub',
     icon: Github,
     url: 'https://github.com/Raja-Simform',
-    color: 'hover:text-gray-300',
+    code: 'GH',
   },
   {
     name: 'LeetCode',
     icon: ExternalLink,
     url: 'https://leetcode.com/u/rgjha2001',
-    color: 'hover:text-yellow-400',
+    code: 'LC',
   },
   {
     name: 'WhatsApp',
     icon: MessageCircle,
     url: 'https://api.whatsapp.com/send/?phone=%2B919106813893',
-    color: 'hover:text-green-400',
+    code: 'WA',
   },
 ];
 
@@ -35,94 +35,110 @@ const ContactSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 text-primary/50 text-xs font-mono mb-4">
+              <Wifi className="w-4 h-4" />
+              <span>establishing_connection...</span>
+            </div>
             <h2 className="section-title">
-              Let's <span className="gradient-text">Connect</span>
+              <span className="text-primary">//</span> Let's <span className="neon-text">Connect</span>
             </h2>
-            <p className="section-subtitle">Get in touch with me</p>
+            <p className="section-subtitle">/* init.communication.protocol() */</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Send Me a Message</h3>
+              <h3 className="font-display text-xl font-semibold mb-6 uppercase tracking-wider">
+                <span className="text-primary">&gt;</span> Send_Message
+              </h3>
               <ContactForm />
             </div>
 
             {/* Contact Info & Social */}
-            <div className="space-y-8">
-              <div className="glass rounded-2xl p-8">
-                <h3 className="text-2xl font-semibold mb-6">Contact Info</h3>
-                <p className="text-muted-foreground mb-8">
-                  I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-                </p>
+            <div className="space-y-6">
+              {/* Contact Info Card */}
+              <div className="glass rounded-sm overflow-hidden neon-border">
+                <div className="flex items-center gap-2 px-4 py-2 bg-muted/50 border-b border-primary/20">
+                  <span className="text-xs text-muted-foreground font-mono">contact_data.json</span>
+                </div>
+                <div className="p-6 space-y-4">
+                  <p className="text-muted-foreground font-mono text-sm mb-6">
+                    // Open to new projects and collaborations
+                  </p>
 
-                <div className="space-y-4">
                   <a
                     href="mailto:rgjha2001@gmail.com"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
+                    className="flex items-center gap-4 p-4 rounded-sm bg-muted/30 hover:bg-muted/50 transition-colors group border border-primary/20 hover:border-primary/40"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:glow-sm transition-all">
+                    <div className="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center border border-primary/30 group-hover:glow-sm transition-all">
                       <Mail className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Email</p>
-                      <p className="font-medium">rgjha2001@gmail.com</p>
+                      <p className="text-xs text-primary/50 font-mono">EMAIL</p>
+                      <p className="font-mono text-sm">rgjha2001@gmail.com</p>
                     </div>
                   </a>
 
                   <a
                     href="tel:+919106813893"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors group"
+                    className="flex items-center gap-4 p-4 rounded-sm bg-muted/30 hover:bg-muted/50 transition-colors group border border-primary/20 hover:border-primary/40"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:glow-sm transition-all">
+                    <div className="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center border border-primary/30 group-hover:glow-sm transition-all">
                       <Phone className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Phone</p>
-                      <p className="font-medium">+91 9106813893</p>
+                      <p className="text-xs text-primary/50 font-mono">PHONE</p>
+                      <p className="font-mono text-sm">+91 9106813893</p>
                     </div>
                   </a>
 
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/50">
-                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                  <div className="flex items-center gap-4 p-4 rounded-sm bg-muted/30 border border-primary/20">
+                    <div className="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center border border-primary/30">
                       <MapPin className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Location</p>
-                      <p className="font-medium">Pune, India</p>
+                      <p className="text-xs text-primary/50 font-mono">LOCATION</p>
+                      <p className="font-mono text-sm">Pune, India</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Social Links */}
-              <div className="glass rounded-2xl p-8">
-                <h3 className="text-2xl font-semibold mb-6">Follow Me</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {socialLinks.map((link) => (
-                    <a
-                      key={link.name}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex items-center gap-3 p-4 rounded-xl bg-muted/50 hover:bg-muted text-muted-foreground ${link.color} transition-all`}
-                    >
-                      <link.icon size={24} />
-                      <span className="font-medium">{link.name}</span>
-                    </a>
-                  ))}
+              <div className="glass rounded-sm overflow-hidden neon-border">
+                <div className="flex items-center gap-2 px-4 py-2 bg-muted/50 border-b border-primary/20">
+                  <span className="text-xs text-muted-foreground font-mono">social_links.map()</span>
                 </div>
+                <div className="p-6">
+                  <div className="grid grid-cols-2 gap-3">
+                    {socialLinks.map((link) => (
+                      <a
+                        key={link.name}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 p-4 rounded-sm bg-muted/30 hover:bg-muted/50 border border-primary/20 hover:border-primary/40 hover:glow-sm transition-all group"
+                      >
+                        <link.icon size={20} className="text-primary" />
+                        <div>
+                          <span className="font-mono text-sm block">{link.name}</span>
+                          <span className="text-[10px] text-primary/50 font-mono">[{link.code}]</span>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
 
-                {/* Portfolio Link */}
-                <a
-                  href="https://raja-jha-portfolio.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-primary text-primary-foreground font-semibold hover:scale-[1.02] glow transition-all mt-6"
-                >
-                  Visit Portfolio
-                  <ExternalLink size={18} />
-                </a>
+                  {/* Portfolio Link */}
+                  <a
+                    href="https://raja-jha-portfolio.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full mt-6 cyber-button"
+                  >
+                    Visit_Portfolio
+                    <ExternalLink size={18} />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

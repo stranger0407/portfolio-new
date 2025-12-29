@@ -8,6 +8,7 @@ import ProjectsSection from '@/components/ProjectsSection';
 import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import MatrixRain from '@/components/MatrixRain';
 import usePageAnalytics from '@/hooks/usePageAnalytics';
 
 const Index = () => {
@@ -25,7 +26,7 @@ const Index = () => {
           name="keywords" 
           content="Raja Jha, Full Stack Developer, Software Engineer, React Developer, Angular Developer, Spring Boot, TypeScript, Java, Web Development, Cognizant, Portfolio" 
         />
-        <meta name="theme-color" content="#3B82F6" />
+        <meta name="theme-color" content="#00ff66" />
         <meta property="og:title" content="Raja Jha - Full Stack Software Engineer" />
         <meta property="og:description" content="Transforming Ideas into Elegant and Scalable Solutions" />
         <meta property="og:type" content="website" />
@@ -33,9 +34,10 @@ const Index = () => {
         <link rel="canonical" href="https://raja-jha-portfolio.vercel.app/" />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background relative">
+        <MatrixRain />
         <Navigation />
-        <main>
+        <main className="relative z-10">
           <HeroSection />
           <AboutSection />
           <SkillsSection />

@@ -1,25 +1,29 @@
-import { Code2, Layers, Cpu, Zap } from 'lucide-react';
+import { Code2, Layers, Cpu, Zap, Database, Globe } from 'lucide-react';
 
 const highlights = [
   {
     icon: Code2,
-    title: 'Full Stack',
-    description: 'End-to-end web development',
+    title: 'Full_Stack',
+    description: 'End-to-end development',
+    code: '0x01',
   },
   {
     icon: Layers,
     title: 'Scalable',
-    description: 'Clean & maintainable code',
+    description: 'Clean architecture',
+    code: '0x02',
   },
   {
     icon: Cpu,
-    title: 'System Design',
-    description: 'Efficient architectures',
+    title: 'Sys_Design',
+    description: 'Efficient systems',
+    code: '0x03',
   },
   {
     icon: Zap,
-    title: 'Performance',
-    description: 'Optimized solutions',
+    title: 'Optimize',
+    description: 'Performance first',
+    code: '0x04',
   },
 ];
 
@@ -30,59 +34,115 @@ const AboutSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 text-primary/50 text-xs font-mono mb-4">
+              <span>{'<section id="about">'}</span>
+            </div>
             <h2 className="section-title">
-              About <span className="gradient-text">Me</span>
+              <span className="text-primary">//</span> About <span className="neon-text">Me</span>
             </h2>
-            <p className="section-subtitle">Get to know me better</p>
+            <p className="section-subtitle">/* System.developer.info */</p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* About Text */}
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* About Text - Terminal Style */}
+            <div className="glass rounded-sm overflow-hidden neon-border">
+              <div className="flex items-center gap-2 px-4 py-2 bg-muted/50 border-b border-primary/20">
+                <Database className="w-4 h-4 text-primary" />
+                <span className="text-xs text-muted-foreground font-mono">about_data.json</span>
+              </div>
+              <div className="p-6 font-mono text-sm space-y-4">
+                <div>
+                  <span className="text-secondary">{"{"}</span>
+                </div>
+                <div className="pl-4">
+                  <span className="text-accent">"greeting"</span>
+                  <span className="text-muted-foreground">: </span>
+                  <span className="text-foreground">"Hey there! I'm Raja"</span>
+                  <span className="text-muted-foreground">,</span>
+                </div>
+                <div className="pl-4">
+                  <span className="text-accent">"role"</span>
+                  <span className="text-muted-foreground">: </span>
+                  <span className="text-foreground">"Software Developer"</span>
+                  <span className="text-muted-foreground">,</span>
+                </div>
+                <div className="pl-4">
+                  <span className="text-accent">"passion"</span>
+                  <span className="text-muted-foreground">: </span>
+                  <span className="text-foreground">"Full-stack web development"</span>
+                  <span className="text-muted-foreground">,</span>
+                </div>
+                <div className="pl-4">
+                  <span className="text-accent">"skills"</span>
+                  <span className="text-muted-foreground">: [</span>
+                </div>
+                <div className="pl-8 text-foreground">
+                  <span>"Responsive web apps"</span><span className="text-muted-foreground">,</span><br />
+                  <span>"Scalable frontend systems"</span><span className="text-muted-foreground">,</span><br />
+                  <span>"Real-time collaboration tools"</span>
+                </div>
+                <div className="pl-4">
+                  <span className="text-muted-foreground">],</span>
+                </div>
+                <div className="pl-4">
+                  <span className="text-accent">"expertise"</span>
+                  <span className="text-muted-foreground">: [</span>
+                  <span className="text-primary">"React.js"</span>
+                  <span className="text-muted-foreground">, </span>
+                  <span className="text-primary">"Node.js"</span>
+                  <span className="text-muted-foreground">, </span>
+                  <span className="text-primary">"Android"</span>
+                  <span className="text-muted-foreground">]</span>
+                </div>
+                <div>
+                  <span className="text-secondary">{"}"}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column */}
             <div className="space-y-6">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Hey there! I'm Raja, a passionate Software Developer with a strong foundation in full-stack web development.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                I create responsive web applications, build clean and scalable frontend systems, and enjoy working on collaborative real-time tools.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                I also love diving into system design, crafting efficient algorithms, and have hands-on experience with technologies like <span className="text-primary font-semibold">React.js</span>, <span className="text-primary font-semibold">Node.js</span> and <span className="text-primary font-semibold">Android (Java)</span>.
-              </p>
+              {/* Highlight Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                {highlights.map((item, index) => (
+                  <div
+                    key={item.title}
+                    className="glass rounded-sm p-4 group hover:glow-sm transition-all duration-500 neon-border"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center border border-primary/30">
+                        <item.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <span className="text-[10px] font-mono text-primary/50">{item.code}</span>
+                    </div>
+                    <h4 className="font-display font-semibold text-sm uppercase tracking-wider mb-1">{item.title}</h4>
+                    <p className="text-xs text-muted-foreground font-mono">{item.description}</p>
+                  </div>
+                ))}
+              </div>
 
               {/* Education Card */}
-              <div className="glass rounded-2xl p-6 mt-8 gradient-border">
+              <div className="glass rounded-sm p-6 neon-border">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">🎓</span>
+                  <div className="w-12 h-12 rounded-sm bg-primary/10 flex items-center justify-center border border-primary/30">
+                    <Globe className="w-6 h-6 text-primary" />
                   </div>
-                  <div>
-                    <h4 className="text-lg font-semibold mb-1">Bachelor of Engineering (B.E.)</h4>
-                    <p className="text-muted-foreground">Computer Engineering</p>
-                    <p className="text-sm text-muted-foreground mt-1">L.D. College of Engineering</p>
-                    <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-full bg-primary/20 text-primary text-sm font-medium">
-                      CGPA: 8.6/10.0
+                  <div className="flex-1">
+                    <div className="text-xs text-primary/50 font-mono mb-1">EDUCATION.exe</div>
+                    <h4 className="font-display text-lg font-semibold mb-1 uppercase tracking-wide">B.E. Computer Engineering</h4>
+                    <p className="text-muted-foreground text-sm font-mono">L.D. College of Engineering</p>
+                    <div className="inline-flex items-center gap-2 mt-3 px-3 py-1 rounded-sm bg-primary/10 border border-primary/30">
+                      <span className="text-primary text-sm font-mono font-bold">CGPA: 8.6/10.0</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Highlight Cards */}
-            <div className="grid grid-cols-2 gap-4">
-              {highlights.map((item, index) => (
-                <div
-                  key={item.title}
-                  className="glass glass-hover rounded-2xl p-6 text-center"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <h4 className="font-semibold mb-2">{item.title}</h4>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
-                </div>
-              ))}
-            </div>
+          <div className="text-center mt-12 text-primary/50 text-xs font-mono">
+            <span>{'</section>'}</span>
           </div>
         </div>
       </div>

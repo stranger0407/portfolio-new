@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Terminal } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const navItems = [
-  { label: 'About', href: '/#about' },
-  { label: 'Skills', href: '/#skills' },
-  { label: 'Experience', href: '/#experience' },
-  { label: 'Projects', href: '/#projects' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'About', href: '/#about', code: '01' },
+  { label: 'Skills', href: '/#skills', code: '02' },
+  { label: 'Experience', href: '/#experience', code: '03' },
+  { label: 'Projects', href: '/#projects', code: '04' },
+  { label: 'Blog', href: '/blog', code: '05' },
+  { label: 'Contact', href: '/#contact', code: '06' },
 ];
 
 const Navigation = () => {
@@ -27,7 +27,6 @@ const Navigation = () => {
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
     
-    // If it's a hash link and we're on the home page, scroll to section
     if (href.startsWith('/#') && location.pathname === '/') {
       const element = document.querySelector(href.replace('/', ''));
       element?.scrollIntoView({ behavior: 'smooth' });
@@ -44,23 +43,28 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass py-4' : 'py-6'
+        isScrolled ? 'glass py-3 border-b border-primary/20' : 'py-6'
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold gradient-text">
-          RJ
+        <Link to="/" className="flex items-center gap-2 group">
+          <Terminal className="w-6 h-6 text-primary animate-pulse" />
+          <span className="text-xl font-display font-bold neon-text tracking-widest">
+            RAJA_JHA
+          </span>
+          <span className="text-primary terminal-cursor">_</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             item.href.startsWith('/') && !item.href.includes('#') ? (
               <Link
                 key={item.href}
                 to={item.href}
-                className={`nav-link text-sm uppercase tracking-wider ${isActive(item.href) ? 'text-primary' : ''}`}
+                className={`nav-link flex items-center gap-1 ${isActive(item.href) ? 'text-primary neon-text' : ''}`}
               >
+                <span className="text-primary/50 text-[10px]">[{item.code}]</span>
                 {item.label}
               </Link>
             ) : (
@@ -68,8 +72,9 @@ const Navigation = () => {
                 key={item.href}
                 href={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="nav-link text-sm uppercase tracking-wider"
+                className="nav-link flex items-center gap-1"
               >
+                <span className="text-primary/50 text-[10px]">[{item.code}]</span>
                 {item.label}
               </a>
             )
@@ -78,7 +83,7 @@ const Navigation = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-foreground p-2"
+          className="md:hidden text-primary p-2 neon-border rounded"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -87,25 +92,29 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass mt-2 mx-4 rounded-xl p-6 animate-fade-up">
+        <div className="md:hidden glass mt-2 mx-4 rounded p-6 animate-fade-up border border-primary/30">
           <div className="flex flex-col gap-4">
             {navItems.map((item) => (
               item.href.startsWith('/') && !item.href.includes('#') ? (
                 <Link
                   key={item.href}
                   to={item.href}
-                  className={`nav-link text-lg ${isActive(item.href) ? 'text-primary' : ''}`}
+                  className={`nav-link text-lg flex items-center gap-2 ${isActive(item.href) ? 'text-primary' : ''}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
+                  <span className="text-primary">&gt;</span>
+                  <span className="text-primary/50 text-xs">[{item.code}]</span>
                   {item.label}
                 </Link>
               ) : (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="nav-link text-lg"
+                  className="nav-link text-lg flex items-center gap-2"
                   onClick={() => handleNavClick(item.href)}
                 >
+                  <span className="text-primary">&gt;</span>
+                  <span className="text-primary/50 text-xs">[{item.code}]</span>
                   {item.label}
                 </a>
               )
