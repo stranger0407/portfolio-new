@@ -2,12 +2,30 @@ import { ExternalLink, Github, Folder, ChevronRight } from 'lucide-react';
 
 const projects = [
   {
+    title: 'FinPulse',
+    description: 'Premium financial news aggregator with real-time market data. Curated news from top Indian financial sources.',
+    technologies: ['React', 'TypeScript', 'Tailwind', 'Vite'],
+    github: 'https://github.com/stranger0407/Financehub',
+    demo: 'https://financehub-gamma.vercel.app/',
+    featured: true,
+    code: 'PRJ_001',
+  },
+  {
+    title: 'Mahalaxmi_Ecommerce',
+    description: 'Full-stack ecommerce for servers & computers. Spring Boot REST APIs + React TypeScript with JWT auth & role-based access.',
+    technologies: ['Spring_Boot', 'React', 'TypeScript', 'MySQL', 'JWT'],
+    github: 'https://github.com/stranger0407/Ecommerce',
+    demo: 'https://ecommerce-three-ruby-yrdj6u0e0e.vercel.app/',
+    featured: true,
+    code: 'PRJ_002',
+  },
+  {
     title: 'E-Commerce_Platform',
     description: 'Full-stack eCommerce with auth, cart system, and secure sessions. Modular Angular UI + Spring Boot REST APIs.',
     technologies: ['Spring_Boot', 'Angular', 'REST', 'SQL'],
     github: 'https://github.com/Raja-Simform/ecommerce-app',
     featured: true,
-    code: 'PRJ_001',
+    code: 'PRJ_003',
   },
   {
     title: 'Netflix_Clone',
@@ -15,7 +33,7 @@ const projects = [
     technologies: ['React', 'Firebase', 'TMDb_API'],
     github: 'https://github.com/Raja-Simform/netflix-clone',
     featured: true,
-    code: 'PRJ_002',
+    code: 'PRJ_004',
   },
   {
     title: 'Atomix_Component_Lib',
@@ -23,7 +41,7 @@ const projects = [
     technologies: ['React', 'TypeScript', 'Storybook'],
     github: 'https://github.com/Raja-Simform/Atomix',
     featured: true,
-    code: 'PRJ_003',
+    code: 'PRJ_005',
   },
   {
     title: 'India_Post_Tracker',
@@ -31,7 +49,7 @@ const projects = [
     technologies: ['React', 'TypeScript', 'Tailwind'],
     github: 'https://github.com/Raja-Simform/IndiaPost',
     demo: 'https://india-post-gy2ty90a5-raja-jhas-projects.vercel.app/',
-    code: 'PRJ_004',
+    code: 'PRJ_006',
   },
   {
     title: 'Custom_Hooks_Library',
@@ -39,7 +57,7 @@ const projects = [
     technologies: ['React', 'TypeScript'],
     github: 'https://github.com/Raja-Simform/CustomHooks',
     demo: 'https://custom-hooks-jade.vercel.app/',
-    code: 'PRJ_005',
+    code: 'PRJ_007',
   },
   {
     title: 'Paint_Studio',
@@ -47,7 +65,7 @@ const projects = [
     technologies: ['React', 'TypeScript'],
     github: 'https://github.com/Raja-Simform/React-Paint-App/tree/dev',
     demo: 'https://react-paint-app-rosy.vercel.app/',
-    code: 'PRJ_006',
+    code: 'PRJ_008',
   },
 ];
 
